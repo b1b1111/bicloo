@@ -1,0 +1,254 @@
+/*-------------------------Global-------------------------*/
+@font-face {
+    font-family: 'ambleregular';
+    src: url('fonts/Amble-Regular-webfont.eot');
+    src: url('fonts/Amble-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Amble-Regular-webfont.woff') format('woff'),
+         url('fonts/Amble-Regular-webfont.ttf') format('truetype'),
+         url('fonts/Amble-Regular-webfont.svg#ambleregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+
+    background: url('images/background_3.jpg') no-repeat;
+    background-position: 50% 1%;
+    color: rgb(236, 106, 25);
+    font-family: 'ambleregular', sans-serif;
+    padding-top: 15px;
+}
+
+h1 {
+    text-align: center;
+    margin: -16px 0 -10px 0;
+}
+
+#logo_header {
+
+    display: block;
+    margin: 0 auto;
+}
+
+
+/*------------------------Slider-----------------------*/
+
+.container {
+    
+    overflow:hidden;
+    width: 100%;
+}
+
+#slider {
+
+    text-align: center;
+    height: 480px;
+    display: flex;
+    flex-flow: row nowrap;
+    margin-bottom: 0;
+  
+}
+
+#slider h2 {
+    color: white;
+    text-shadow: 2px 0px 3px black;
+}
+
+.slide {
+
+    position: relative;
+    width:100%;
+    height:480px;
+    flex-shrink: 0;
+    transition:left 600ms ease-in;
+    left: 0;
+}
+
+.slide p {
+
+    font-size: 1.1em;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: rgb(7, 7, 7);
+    background-color: rgba(211, 211, 211, 0.25);
+}
+
+/*--------------------------BUTTON SLIDER-------------------------*/
+
+#prev, #next {
+
+    cursor: pointer;
+    position: absolute;
+    top: calc(50% - 16px);
+    transition: 0.6s ease;
+}
+
+#prev:hover,
+#next:hover {
+
+    width: 34px;
+    height: 34px;
+}
+#next {
+
+    right: calc(50% - 400px);
+ 
+}
+
+#prev {
+
+    left: calc(50% - 400px);
+    transform: rotate(180deg);
+}
+
+.playSlide {
+
+    cursor: pointer;
+    margin-top: 10px;
+    width: 32px;
+    height: 32px;
+}
+
+.playSlide:hover {
+    width: 34px;
+    height: 34px;
+}
+
+/*---------------------------------MAP---------------------------------*/
+#carte {
+
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    
+}
+
+#map {
+
+    margin-bottom: 40px;
+    height: 500px;
+    width: 60%;
+    border: 2px solid gray;
+    border-radius: 4px;
+}
+
+/*-----------------------------Infos et Reservation-------------------------------*/
+
+#reservation {
+
+    display: none;
+    height: 500px;
+    width: 30%;
+    border: 2px solid gray;
+    border-radius: 4px;
+    font-size: 0.8em;
+}
+
+#infos {
+    margin-top: 30px;
+}
+
+#infos,
+form,
+#button_reservation {
+
+    margin-left: 15px;
+    text-align: justify;
+}
+
+#formulaire {
+    margin-top: 30px;
+}
+
+#canvas {
+
+    color: black;
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 4px;
+}
+
+#button_clear {
+    margin-top: 10px;
+}
+
+#timer {
+
+    display: block;
+    text-align: center;
+}
+
+
+/*-----------------------------------RESPONSIVE----------------------------------*/
+
+@media all and (max-width: 760px) {
+
+    body {
+        background-size: 90%;
+    }
+
+    .container {
+        font-size: 0.95em;
+    }
+
+    #next {
+        right: calc(50% - 250px);
+    }
+    
+    #prev {
+        left: calc(50% - 250px);
+    }
+
+    #carte {
+       
+        flex-flow: column;
+    }
+
+    #map {
+        width: 100%
+    }
+
+    #reservation {
+        width: 100%;
+        height: 380px;
+    }
+
+}
+
+
+@media all and (max-width: 480px) {
+
+    #logo_header {
+        width: 130px;
+        height: 70px;
+    }
+
+   .logo_slide {
+       width: 80px;
+       height: 80px;
+   }
+   #prev, #next {
+
+    top: calc(20% - 16px);
+    transition: 0.6s ease;
+    }
+
+   #next {
+    right: calc(50% - 140px);
+    }
+
+    #prev {
+    left: calc(50% - 140px);
+    }
+
+    .container {
+        font-size: 0.7em;
+    }
+
+    #carte {
+        margin-top: -100px;
+
+    }
+
+}

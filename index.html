@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+    <title>bicloo</title>
+ 
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index,follow">
+    <meta name="geo.region" content="FR">
+    <meta name="geo.placename" content="nantes">
+    <meta name="geo.position" content="48.873052,2.349826,14">
+
+    <meta property="og:locale" content="fr_FR">
+	  <meta property="og:title" content="bicloo">
+	  <meta property="og:type" content="website">
+	  <meta property="og:url" content="https://www.bicloo.webagency-lefebvre.fr/">
+    <meta property="og:site_name" content="bicloo.webagency-lefebvre">
+    <meta property="og:image" content="">
+
+    
+    <meta name="twitter:card" content="summary">
+	  <meta name="twitter:site" content="Réalisation de sites internet sur-mesure">
+	  <meta name="twitter:creator" content="bicloo">
+	  <meta name="twitter:title" content="bicloo">
+    <meta name="description" content="location de vélo sur nantes">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+
+    <link rel="alternate" hreflang="fr" href="http://www.bicloo.webagency-lefebvre.fr/" />    
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+       
+</head>
+
+<body>
+    <header>
+        <img id="logo_header" src="images/logo.png" width="260px" height="143px" alt="logo">
+
+        <div class="container">
+
+          <div id="slider">
+
+              <div id="slide1" class="slide">
+                <img src="images/enpratique-01.png" alt="banner1" class="logo_slide">
+                <h2>Trouver son bicloo</h2>
+                <p>
+                    Choisir votre station sur la carte</br>
+                    <img src="images/marker_good.png" alt="log1"> = bicloo disponible</br>
+                    <img src="images/marker_none.png" alt="log2"> = bicloo indisponible</br>
+                    <img src="images/marker_travaux.png" alt="log3"> = station fermée</br>
+                    Cliquez pour ouvrir la fenêtre d'information</br>
+                    <img src="images/pause-play-button.png" class="playSlide" onclick="playSlide()">
+                    
+                </p>
+              </div>
+
+              <div id="slide2" class="slide">
+                <img src="images/enpratique-02.png" alt="banner1" class="logo_slide">
+                <h2>Information bicloo</h2>
+                <p>
+                    Nom et adresse de la station</br></br>
+                    Nombre de bicloo disponibles</br></br>
+                    Nombre de places disponibles</br>
+                    <img src="images/pause-play-button.png" class="playSlide" onclick="playSlide()">
+                </p>
+              </div>
+
+              <div id="slide3" class="slide">
+                <img src="images/enpratique-03.png" alt="banner1" class="logo_slide">
+                <h2>Rendre son biclooPlus</h2>
+                <p>
+                    Cliquez sur le bouton reserver</br></br>
+                    Saisir votre nom et prénom et apposer votre signature</br></br>
+                    Valider pour confirmer ou annuler</br></br>
+                    Votre bicloo est reservé pendant 20 minutes</br>
+                    <img src="images/pause-play-button.png" class="playSlide" onclick="playSlide()">
+                </p>
+              </div>
+          </div>
+        </div>
+          
+          <img src="images/arrow.png" id="prev" onclick="prevSlide()">
+          <img src="images/arrow.png" id="next" onclick="nextSlide()">
+          
+        
+    </header>
+
+    <section id="carte">
+
+        <div id="map"></div>
+
+        <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+                integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+                crossorigin=""></script>
+
+        <div id="reservation">
+
+          <div id="infos"></div>
+          <button id="button_reservation">Reserver</button>
+          
+          <form id="formulaire">
+
+            <h1>RESERVATION</h1> </br>
+          
+            <h4>
+              <label for="nom">Nom</label></br>
+              <input type="text" name="nom" id="nom" placeholder="nom" required>
+            </h4>
+          
+            <h4>
+              <label for="prenom">Prénom</label></br>
+              <input type="text" name="prenom" id="prenom" placeholder="prenom" required> 
+            </h4>
+
+				    <p>
+					    <h4>Signature</h4>
+					    <canvas id="canvas" width="280" height="100" onclick="document.getElementById('button_envoyer').disabled = this.checked"></canvas></br>
+					    <button id="button_clear" onclick="document.getElementById('button_envoyer').disabled = true">Effacer</button>
+				    </p>
+          
+            <button id="button_envoyer" disabled>Valider</button>
+            <button id="button_annuler" value="effacer" onclick="this.form.reset();">Annuler</button>
+                  
+          </form>
+
+        </div>
+
+    </section> 
+
+    <section>
+      <div id="timer">20:00</div>
+    </section>
+
+
+	<script src="style.js"></script>
+	<script src="canvas.js"></script>
+    
+</body>
+
+<footer>
+
+</footer>
+</html>

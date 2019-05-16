@@ -1,0 +1,397 @@
+/*-------------------------Global-------------------------*/
+@font-face {
+    font-family: 'ambleregular';
+    src: url('fonts/Amble-Regular-webfont.eot');
+    src: url('fonts/Amble-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Amble-Regular-webfont.woff') format('woff'),
+         url('fonts/Amble-Regular-webfont.ttf') format('truetype'),
+         url('fonts/Amble-Regular-webfont.svg#ambleregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+
+    background: url('images/background_3.jpg') no-repeat;
+    background-position: 50% 1%;
+    color: rgb(236, 106, 25);
+    font-family: 'ambleregular', sans-serif;
+    padding-top: 15px;
+}
+
+h1 {
+    text-align: center;
+    margin: -16px 0 -10px 0;
+}
+
+header {
+    position: relative;
+}
+
+#logo_header {
+
+    display: block;
+    margin: 0 auto;
+}
+/*------------------------Slider-----------------------*/
+
+.container {  
+    overflow:hidden;
+    width: 100%;
+}
+
+#slider {
+
+    text-align: center;
+    height: 480px;
+    display: flex;
+    flex-flow: row nowrap;
+    margin-bottom: 0;
+  
+}
+
+#slider h2 {
+    color: white;
+    text-shadow: 2px 0px 3px black;
+}
+
+.slide {
+
+    position: relative;
+    width:100%;
+    height:480px;
+    flex-shrink: 0;
+    transition:left 600ms ease-in;
+    left: 0;
+}
+
+.slide p {
+
+    font-size: 1.1em;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: rgb(7, 7, 7);
+    background-color: rgba(211, 211, 211, 0.25);
+}
+
+/*--------------------------BUTTON SLIDER-------------------------*/
+
+#prev, #next {
+
+    cursor: pointer;
+    position: absolute;
+    top: calc(50% - 16px);
+    transition: 0.6s ease;
+}
+
+#prev:hover,
+#next:hover {
+
+    width: 34px;
+    height: 34px;
+}
+#next {
+
+    right: calc(50% - 400px);
+ 
+}
+
+#prev {
+
+    left: calc(50% - 400px);
+    transform: rotate(180deg);
+}
+
+#playSlide {
+
+    position: absolute;
+    bottom: 16px;
+    left: calc(50% - 16px);
+    cursor: pointer;
+    margin-top: 10px;
+    width: 32px;
+    height: 32px;
+}
+
+#playSlide:hover {
+    width: 34px;
+    height: 34px;
+}
+/* -------------------------------MAP------------------------------------------ */
+
+#titre h2{
+    margin: 0;
+    padding-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#carte {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;  
+}
+
+#map {
+
+    margin-bottom: 40px;
+    height: 550px;
+    width: 60%;
+    border: 2px solid gray;
+    border-radius: 4px;
+}
+
+/*--------------------------------MARKERCLUSTER-------------------------------------------*/
+
+.leaflet-cluster-anim .leaflet-marker-icon, .leaflet-cluster-anim .leaflet-marker-shadow {
+	-webkit-transition: -webkit-transform 0.25s ease-out, opacity 0.25s ease-in;
+	-moz-transition: -moz-transform 0.25s ease-out, opacity 0.25s ease-in;
+	-o-transition: -o-transform 0.25s ease-out, opacity 0.25s ease-in;
+	transition: transform 0.25s ease-out, opacity 0.25s ease-in;
+    }
+    
+    .marker-cluster-small {
+        background-color: rgba(181, 226, 140, 0.6);
+        }
+    .marker-cluster-small div {
+        background-color: rgba(110, 204, 57, 0.6);
+        }
+    
+    .marker-cluster-medium {
+        background-color: rgba(241, 211, 87, 0.6);
+        }
+    .marker-cluster-medium div {
+        background-color: rgba(240, 194, 12, 0.6);
+        }
+    
+    .marker-cluster-large {
+        background-color: rgba(253, 156, 115, 0.6);
+        }
+    .marker-cluster-large div {
+        background-color: rgba(241, 128, 23, 0.6);
+        }
+    
+    .marker-cluster {
+        background-clip: padding-box;
+        border-radius: 20px;
+        }
+    .marker-cluster div {
+        width: 30px;
+        height: 30px;
+        margin-left: 5px;
+        margin-top: 5px;
+    
+        text-align: center;
+        border-radius: 15px;
+        font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
+        }
+    .marker-cluster span {
+        line-height: 30px;
+        }
+        /* IE 6-8 fallback colors */
+    .marker-cluster-small {
+        background-color: rgb(168, 172, 164);
+        }
+    .marker-cluster-small div {
+        background-color: rgb(85, 87, 84);
+        }
+
+    .marker-cluster-medium {
+        background-color: rgb(241, 211, 87);
+        }
+    .marker-cluster-medium div {
+        background-color: rgb(240, 194, 12);
+        }
+
+    .marker-cluster-large {
+        background-color: rgb(253, 156, 115);
+        }
+    .marker-cluster-large div {
+        background-color: rgb(241, 128, 23);
+    }
+
+/*--------------------------------INFOS RESERVATION--------------------------------------- */
+#reservation{
+    width: 25%;
+    height: 550px;
+    border: 2px solid gray;
+    border-radius: 4px;
+    position: relative;
+    display: none;
+}
+
+#reservation h3{
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    font-size: 1.5em;
+}
+
+#informations{
+    padding: 0 10px;
+}
+
+#informations p {
+    margin-bottom: 10px; 
+}
+
+#informations span{
+    font-weight: bold;
+}
+
+/*----------------------------CONFIRMATION-------------------------------*/
+#confirmation {
+    display: none;
+}
+
+#button-reservation {
+    position: absolute;
+    bottom: 10px;
+    left: calc(50% - 37px);
+}
+
+#button-confirmation {
+    position: absolute;
+    bottom: 10px;
+    left: calc(50% - 74px);
+}
+
+#button-reservation button, #button-confirmation button {
+    padding: 10px;
+}
+
+#nom, 
+#prenom {
+    margin-left: 10px;
+    border: 1px solid gray;
+    border-radius: 2px;
+}
+
+label {
+    margin-left: 10px;
+}
+
+#confirmation p {
+    padding: 0 20px;
+    margin-bottom: 40px;
+}
+
+#effacer { 
+    position: absolute;
+    left: calc(50% - 37px);
+}
+
+#canvas {
+    width: 250px;
+    max-width: 95%;
+    height: 150px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    background-color: white;
+    margin: auto;
+    display: block;
+}
+
+/* ------------------------------TIMER--------------------------------- */
+#timer{
+    display: none;
+    padding-bottom: 30px;
+}
+
+#block-timer{
+    width: 80%;
+    margin: auto;
+    border-radius: 4px;
+    border: 2px solid gray;
+    background-color: rgb(145, 141, 141);
+}
+
+#time{
+    color: #F2F2F3;
+    text-align: center;
+}
+
+#time span{
+    font-weight: bold;
+}
+
+/* ---------------------------------MEDIA QUERIES--------------------------------- */
+
+@media all and (max-width: 960px) {
+
+    body {
+        background-size: 90%;
+    }
+
+    .container {
+        font-size: 0.95em;
+    }
+
+    #next {
+        right: calc(50% - 250px);
+    }
+    
+    #prev {
+        left: calc(50% - 250px);
+    }
+
+    #carte {    
+        flex-flow: column;
+    }
+
+    #map {
+        width: 100%
+    }
+
+    #reservation {
+        width: 100%;
+    }
+}
+
+@media all and (max-width: 480px) {
+
+    #logo_header {
+        width: 130px;
+        height: 70px;
+    }
+
+    .logo_slide {
+        width: 80px;
+        height: 80px;
+    }
+    #prev, #next {
+        top: calc(20% - 16px);
+        transition: 0.6s ease;
+    }
+
+    #next {
+        right: calc(50% - 140px);
+    }
+
+    #prev {
+        left: calc(50% - 140px);
+    }
+
+    #playSlide {
+        bottom: 160px;
+    }
+
+    .container {
+        font-size: 0.7em;
+    }
+
+    #map {
+        height: 400px;
+    }
+
+    #titre {
+        font-size: 0.9em;
+        margin-top: -130px;
+    }
+
+    #timer {
+        margin-top: 10px;
+    }
+
+}

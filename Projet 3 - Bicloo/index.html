@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Location de vélos sur Nantes." />
+    <meta name="geo.region" content="FR">
+    <meta name="geo.placename" content="Nantes">
+    <meta name="geo.position" content="47.2186371, -1.5541362">
+
+    <meta property="og:title" content="bicloo"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://www.bicloo.webagency-lefebvre.fr/"/>
+    <meta property="og:image" content="https://www.bicloo.webagency-lefebvre.fr/images/logo.png"/>
+
+    <meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="Location de vélos sur Nantes.">
+	<meta name="twitter:creator" content="bicloo.webagency-lefebvre">
+	<meta name="twitter:title" content="bicloo">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="alternate" hreflang="fr" href="https://www.bicloo.webagency-lefebvre.fr/" />    
+    <link rel="stylesheet" href="style.css">
+   
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+
+    <title>Bicloo</title>
+</head>
+<body>
+    <header>
+        <img id="logo_header" src="images/logo.png" width="260px" height="143px" alt="logo">
+
+        <div class="container">
+
+          <div id="slider">
+
+              <div id="slide1" class="slide">
+                <img src="images/enpratique-01.png" alt="banner1" class="logo_slide">
+                <h2>Trouver son bicloo</h2>
+                <p>
+                    Choisir votre station sur la carte</br>
+                    <img src="images/marker_good.png" alt="log1"> = bicloo disponible</br>
+                    <img src="images/marker_none.png" alt="log2"> = bicloo indisponible</br>
+                    <img src="images/marker_travaux.png" alt="log3"> = station fermée</br>
+                    Cliquez pour ouvrir la fenêtre d'information</br>  
+                </p>
+              </div>
+
+              <div id="slide2" class="slide">
+                <img src="images/enpratique-02.png" alt="banner1" class="logo_slide">
+                <h2>Information bicloo</h2>
+                <p>
+                    Nom et adresse de la station</br></br>
+                    Nombre de bicloo disponibles</br></br>
+                    Nombre de places disponibles</br> 
+                </p>
+              </div>
+
+              <div id="slide3" class="slide">
+                <img src="images/enpratique-03.png" alt="banner1" class="logo_slide">
+                <h2>Prendre son biclooPlus</h2>
+                <p>
+                    Cliquez sur le bouton reserver</br></br>
+                    Saisir votre nom et prénom et apposer votre signature</br></br>
+                    Valider pour confirmer ou annuler</br></br>
+                    Votre bicloo est reservé pendant 20 minutes</br></br>
+                    Si nouvelle reservation, annulation de la première.</br>
+                </p>
+              </div>
+          </div>
+        </div>
+          
+            <img src="images/pause-play-button.png" id="playSlide">
+            <img src="images/arrow.png" id="prev">
+            <img src="images/arrow.png" id="next">
+ 
+    </header>
+
+    <div id="titre">
+        <h2>Carte stations</h2>
+    </div>
+
+    <section id="carte">
+        <div id="map"></div>
+        <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+   crossorigin=""></script>
+        
+        <div id="reservation">
+            <div id="reserver">
+                <h3>détails de la station</h3>
+                <div id="informations"></div>
+
+                <div id="button-reservation">
+                    <button>Réserver</button>
+                </div>
+            </div>
+
+            <div id="confirmation">
+                <h3>Réservation</h3>
+                <form>
+                    <h4>
+                        <label for="nom">Nom</label></br>
+                        <input type="text" name="nom" id="nom" class="idForm" placeholder="nom" required>
+                    </h4>
+                    
+                    <h4>
+                        <label for="prenom">Prénom</label></br>
+                        <input type="text" name="prenom" id="prenom" class="idForm" placeholder="prenom" required> 
+                    </h4>
+
+                    <p>Pour confirmer la réservation de votre vélo, apposez votre signature dans le champ ci-dessous, puis validez.</p>
+
+                    <canvas id="canvas"></canvas>
+                    <button id="effacer">effacer</button>
+
+                    <div id="button-confirmation">
+                        <button id="valider" disabled>Valider</button>
+                        <button id="button_annuler" value="effacer">Annuler</button>
+                    </div>
+                </form>
+            
+            </div>
+        </div>
+    </section>
+
+    <section id="timer">
+        <div id="block-timer">
+            <p id="time"></p>
+        </div>
+    </section>
+
+    <footer>
+       
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
+    <script src="slider2.js"></script>
+    <script src="timer.js"></script>
+    <script src="canvas.js"></script>
+    <script src="formulaire.js"></script>
+    <script src="map.js"></script>
+
+</body>
+</html>
